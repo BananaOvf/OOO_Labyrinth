@@ -1,0 +1,94 @@
+﻿<Window x:Class="ООО_Лабиринт.Views.EditBookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ООО_Лабиринт.Views"
+        mc:Ignorable="d"
+            Title="Редактирование книги" Height="586" Width="902" Loaded="Window_Loaded">
+    <Grid>
+        <!--Макет окна-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Заголовок-->
+        <Grid Grid.Row="0" Background="#FFFFCC99">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Source="/Resources/logo.png" Margin="15"/>
+            <TextBlock x:Name="tbTitle" Grid.Column="1" Text="Редактирование книги" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource Title}"/>
+            <Button x:Name="buttonNavigation" Click="buttonNavigation_Click"  Grid.Column="2" Background="#FFCC6600" Content="Назад" Margin="15" Style="{StaticResource Title}" Foreground="White"/>
+        </Grid>
+
+        <!--Функционал-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Поля товара-->
+            <UniformGrid Grid.Column="0" Columns="2" Rows="12">
+                <Button Visibility="Hidden"/>
+                <Button Visibility="Hidden"/>
+                <!--<TextBlock Text="Артикул" Style="{StaticResource Normal}" HorizontalAlignment="Right" 
+                 Margin="10 0" VerticalAlignment="Center"/>
+                <TextBox x:Name="tbArticle" Style="{StaticResource Normal}" Margin="10 0" IsReadOnly="True"/>-->
+                <TextBlock Text="Название" Style="{StaticResource Normal}" 
+                HorizontalAlignment="Right" Margin="10 0" VerticalAlignment="Center"/>
+                <TextBox x:Name="tbName" Style="{StaticResource Normal}" Margin="10 0"/>
+                <TextBlock Text="Автор" Style="{StaticResource Normal}" 
+                 HorizontalAlignment="Right" Margin="10 0" VerticalAlignment="Center"/>
+                <TextBox x:Name="tbAuthor" Style="{StaticResource Normal}" Margin="10 0"/>
+                <TextBlock Text="Жанр" Style="{StaticResource Normal}" 
+                 HorizontalAlignment="Right" Margin="10 0" VerticalAlignment="Center"/>
+                <ComboBox Name="cbGenre" Style="{StaticResource Normal}" Margin="10 0"/>
+                <TextBlock Text="Издательство" Style="{StaticResource Normal}" 
+                 HorizontalAlignment="Right" Margin="10 0" VerticalAlignment="Center"/>
+                <ComboBox Name="cbPublishingHouse" Style="{StaticResource Normal}" Margin="10 0"/>
+                <TextBlock Text="Год издания" Style="{StaticResource Normal}" 
+                 HorizontalAlignment="Right" Margin="10 0" VerticalAlignment="Center"/>
+                <TextBox x:Name="tbYear" Style="{StaticResource Normal}" Margin="10 0"/>
+                <TextBlock Text="Стоимость" Style="{StaticResource Normal}" 
+                 HorizontalAlignment="Right" Margin="10 0" VerticalAlignment="Center"/>
+                <TextBox x:Name="tbCost" Style="{StaticResource Normal}" Margin="10 0"/>
+                <TextBlock Text="Cкидка" Style="{StaticResource Normal}" 
+                 HorizontalAlignment="Right" Margin="10 0" VerticalAlignment="Center"/>
+                <TextBox x:Name="tbDiscount" Style="{StaticResource Normal}" Margin="10 0"/>
+            </UniformGrid>
+
+            <!--Поля описания и фото товара-->
+            <Grid Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="imagePhoto" Grid.Row="0" Stretch="Uniform" Margin="20 10" 
+         Source="/Resources/picture.png"/>
+                <Button x:Name="butSelectPhoto" Content="Выбрать фото ..." Grid.Row="1" 
+          Style="{StaticResource Normal}" Margin="20 0" Click="butSelectPhoto_Click"  Background="#FFCC6600" Foreground="White"/>
+                <TextBlock Grid.Row="2" Text="Описание товара" Style="{StaticResource Normal}" 
+                HorizontalAlignment="Center" Margin="0 0" VerticalAlignment="Center"/>
+                <TextBox x:Name="tbDescription" Grid.Row="3" Text="Текст описания товара" 
+             Style="{StaticResource Normal}" TextWrapping ="Wrap" AcceptsReturn ="True"
+            AcceptsTab ="True" FontSize="12" VerticalScrollBarVisibility="Visible" 
+            HorizontalScrollBarVisibility="Auto"/>
+                <StackPanel Grid.Row="4" Orientation="Vertical" Margin="20 10" >
+                    <Button x:Name="butSaveInDB"  Content="Сохранить" 
+                        Style="{StaticResource Title}" Click="butSaveInDB_Click"  Background="#FFCC6600" Foreground="White"/>
+                    <Button x:Name="butDeletefromDB"  Content="Удалить" 
+                        Style="{StaticResource Title}" Click="butDeletefromDB_Click"  Background="#FFCC6600" Foreground="White"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
